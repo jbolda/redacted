@@ -3,15 +3,23 @@ import preactLogo from "./assets/preact.svg";
 import { WebviewWindow } from "@tauri-apps/api/window";
 import "./app.css";
 
-import { HexAlphaColorPicker } from "react-colorful";
+const percentToHex = (p) => {
+  const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
+  const intValue = Math.round((p / 100) * 255); // map percent to nearest integer (0 - 255)
+  const hexValue = intValue.toString(16); // get hexadecimal representation
+  return hexValue.padStart(2, "0").toUpperCase(); // format with leading 0 and upper case characters
+};
 
 export function App() {
   const [windows, setWindows] = useState([]);
 
   const createWindow = () => {
     setWindows((prevState) => {
-      console.log(prevState);
-      const newWindowMeta = { id: `w${Date.now()}`, color: "#000000" };
+      const newWindowMeta = {
+        id: `w${Date.now()}`,
+        color: "#000000",
+        alpha: "FF",
+      };
       const webview = new WebviewWindow(newWindowMeta.id, {
         url: "../colors.html",
         decorations: false,
@@ -21,7 +29,6 @@ export function App() {
       });
 
       const nextState = prevState.concat([newWindowMeta]);
-      console.log(nextState);
       return nextState;
     });
   };
@@ -29,30 +36,33 @@ export function App() {
   const removeWindow = (event) => {
     setWindows((prevState) => {
       const windowId = event.target.id;
-      console.log(windowId);
       const webview = new WebviewWindow(windowId);
-      console.log(typeof webview, webview);
       webview.close();
       const nextState = [...prevState].filter((window) => {
-        console.log(window.id, windowId);
         return window.id !== windowId;
       });
-      console.log(nextState);
       return nextState;
     });
   };
 
-  const setWindowColor = (windowId) => (color) => {
+  const setWindowColor = (windowId) => (event) => {
+    const colorChange = event.target.value;
+    let color = null;
+
     setWindows((prevState) => {
-      const nextState = [...prevState].map((window) => {
-        if (window.id === windowId) {
-          window.color = color;
+      const nextState = [...prevState].map((colorWindow) => {
+        if (colorWindow.id === windowId) {
+          if (colorChange.startsWith("#")) {
+            colorWindow.color = colorChange;
+          } else {
+            colorWindow.alpha = percentToHex(colorChange);
+          }
+          color = `${colorWindow.color}${colorWindow.alpha}`;
         }
-        return window;
+        return colorWindow;
       });
       const webview = new WebviewWindow(windowId);
-      webview.emit("window-color-change", { color });
-      console.log(nextState);
+      if (color) webview.emit("window-color-change", { color });
 
       return nextState;
     });
@@ -64,18 +74,31 @@ export function App() {
         <h1>Welcome to Redacted!</h1>
       </nav>
       <section>
-        {windows.map((window) => (
-          <div style={{ backgroundColor: window.color }}>
-            <HexAlphaColorPicker
-              color={window.color}
-              onChange={setWindowColor(window.id)}
+        {windows.map((colorWindow) => (
+          <div
+            class="color-container"
+            style={{
+              backgroundColor: `${colorWindow.color}${colorWindow.alpha}`,
+            }}
+          >
+            <input type="color" onInput={setWindowColor(colorWindow.id)} />
+            <input
+              type="range"
+              defaultValue="100"
+              onInput={setWindowColor(colorWindow.id)}
             />
-            <button id={window.id} key={window.id} onClick={removeWindow}>
-              {window.color}
+            <button
+              id={colorWindow.id}
+              key={colorWindow.id}
+              onClick={removeWindow}
+            >
+              X
             </button>
           </div>
         ))}
-        <button onClick={createWindow}>create</button>
+        <button class="flat" onClick={createWindow}>
+          create
+        </button>
       </section>
       <footer data-tauri-drag-region />
     </>

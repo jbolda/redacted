@@ -14,13 +14,8 @@
     console.log(window);
     // access the pre-bundled global API functions
     const { listen } = window.__TAURI__.event;
-    // now we can call our Command!
-    // Right-click the application background and open the developer tools.
-    // You will see "Hello, World!" printed in the console!
+
     const unlisten = listen("window-color-change", (event) => {
-      // event.event is the event name (useful if you want to use a single callback fn for multiple event types)
-      // event.payload is the payload object
-      console.log(event);
       const payload = JSON.parse(event.payload);
       const { color } = payload;
       document.body.style.backgroundColor = color;
