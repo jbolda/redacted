@@ -5,8 +5,7 @@
   font-weight: 400;
 
   color: #0f0f0f;
-  background-color: #f6f6f6;
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,9 +13,32 @@
   -webkit-text-size-adjust: 100%;
 }
 
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  background-color: #211e1e;
+}
+
+footer {
+  background-color: #211e1e;
+  flex: auto
+}
+
+section {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .container {
   margin: 0;
   padding-top: 10vh;
+  flex-grow: initial;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,7 +109,6 @@ button {
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;
-    background-color: #2f2f2f;
   }
 
   a:hover {
@@ -97,6 +118,6 @@ button {
   input,
   button {
     color: #ffffff;
-    background-color: #0f0f0f98;
+    background-color: #0f0f0f;
   }
 }

@@ -4,7 +4,7 @@
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
     "distDir": "../dist",
-    "withGlobalTauri": false
+    "withGlobalTauri": true
   },
   "package": {
     "productName": "redacted",
@@ -59,7 +59,10 @@
         "height": 600,
         "resizable": true,
         "title": "redacted",
-        "width": 800
+        "width": 800,
+        "center": true,
+        "transparent": true,
+        "decorations": false
       }
     ]
   }
