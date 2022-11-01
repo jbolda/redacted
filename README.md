@@ -1,7 +1,23 @@
-# Tauri + Preact
+# Redacted
 
-This template should help get you started developing with Tauri and Preact in Vite.
+Redacted is a small app that allows you to create multiple, borderless windows of any color. Take screenshots with parts hidden or a nice, clean background.
 
-## Recommended IDE Setup
+# Installing
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+Releases will be added in the future. Currently, you need to build from source.
+
+# Development
+
+This is a multiwindow Tauri app. See the docs at [tauri.app](https://tauri.app) for general debugging information.
+
+Run the app.
+
+```
+npm run tauri dev
+```
+
+Build the release assets.
+
+```
+npm run tauri build
+```
