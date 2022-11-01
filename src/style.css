@@ -84,6 +84,8 @@ h1 {
 }
 
 input[type='color'] {
+  -webkit-appearance: none;
+  background-color: #878787;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.2em 0.4em;
@@ -93,13 +95,27 @@ input[type='color'] {
 }
 
 input[type='range'] {
+  -webkit-appearance: none;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   padding-left: 0px;
   padding-right: 0px;
   accent-color: aliceblue;
-  height: 2.5em;
+  background-color: transparent;
+  border: 1px solid #878787;
+  border-radius: 8px;
+  height: 0.1em;
   width: 7.5em;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #878787;
+  border: 1px solid #878787;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 button {
@@ -117,6 +133,7 @@ button {
 
 button.flat {
   border-radius: 0px;
+  margin: 0px;
 }
 
 button {
