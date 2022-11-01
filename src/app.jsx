@@ -1,5 +1,4 @@
 import { useState } from "preact/hooks";
-import preactLogo from "./assets/preact.svg";
 import { WebviewWindow } from "@tauri-apps/api/window";
 import "./app.css";
 
