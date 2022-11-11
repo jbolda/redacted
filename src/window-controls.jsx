@@ -34,8 +34,7 @@ export function WindowControlsNav() {
       style={
         os === "darwin"
           ? {
-              flexDirection: "row-reverse",
-              justifyContent: "start",
+              display: "none",
             }
           : {
               flexDirection: "row",

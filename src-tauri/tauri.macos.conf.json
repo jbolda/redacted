@@ -1,0 +1,13 @@
+{
+  "tauri": {
+    "macOSPrivateApi": false,
+    "windows": [
+      {
+        "decorations": true,
+        "transparent": false,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }
+    ]
+  }
+}
