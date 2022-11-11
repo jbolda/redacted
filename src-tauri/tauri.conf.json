@@ -61,8 +61,8 @@
         "title": "redacted",
         "width": 800,
         "center": true,
-        "transparent": true,
-        "decorations": true
+        "decorations": false,
+        "transparent": true
       }
     ]
   }

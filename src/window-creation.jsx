@@ -67,7 +67,7 @@ export function WindowCreation() {
   };
 
   return (
-    <section>
+    <section style={{ backgroundColor: `#00000000` }}>
       {windows.map((colorWindow) => (
         <div
           class="color-container"

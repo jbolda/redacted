@@ -11,13 +11,11 @@
     style="background-color: black; height: 100vh; padding: 0px; margin: 0px"
   ></body>
   <script>
-    console.log(window);
     // access the pre-bundled global API functions
     const { listen } = window.__TAURI__.event;
 
     const unlisten = listen("window-color-change", (event) => {
-      const payload = JSON.parse(event.payload);
-      const { color } = payload;
+      const { color } = event.payload;
       document.body.style.backgroundColor = color;
     });
   </script>
