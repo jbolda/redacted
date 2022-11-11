@@ -1,10 +1,10 @@
 {
   "tauri": {
-    "macOSPrivateApi": false,
+    "macOSPrivateApi": true,
     "windows": [
       {
         "decorations": true,
-        "transparent": false,
+        "transparent": true,
         "titleBarStyle": "Overlay",
         "hiddenTitle": true
       }
