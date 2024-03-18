@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
-import { WebviewWindow } from "@tauri-apps/api/window";
+import { WebviewWindow } from "@tauri-apps/api/webview";
+import { getCurrent } from "@tauri-apps/api/window";
 
 const percentToHex = (p) => {
   const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
@@ -10,6 +11,7 @@ const percentToHex = (p) => {
 
 export function WindowCreation() {
   const [windows, setWindows] = useState([]);
+  const currentWindow = getCurrent();
 
   const createWindow = () => {
     setWindows((prevState) => {
@@ -24,6 +26,7 @@ export function WindowCreation() {
         center: true,
         resizable: true,
         transparent: true,
+        shadow: false,
       });
 
       const nextState = prevState.concat([newWindowMeta]);
@@ -59,8 +62,8 @@ export function WindowCreation() {
         }
         return colorWindow;
       });
-      const webview = new WebviewWindow(windowId);
-      if (color) webview.emit("window-color-change", { color });
+      if (color)
+        currentWindow.emitTo(windowId, "window-color-change", { color });
 
       return nextState;
     });

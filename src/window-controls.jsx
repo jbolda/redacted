@@ -1,20 +1,21 @@
 import { useState, useEffect } from "preact/hooks";
-import { appWindow, LogicalPosition } from "@tauri-apps/api/window";
-import { platform } from "@tauri-apps/api/os";
+import { getCurrent, LogicalPosition } from "@tauri-apps/api/window";
+import { platform } from "@tauri-apps/plugin-os";
 import "./window-controls.css";
 
 export function WindowControlsNav() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [os, setOS] = useState(null);
 
-  useEffect(async () => {
-    setOS(await platform());
-  }, [platform]);
+  // useEffect(async () => {
+  //   setOS(await platform());
+  // }, [platform]);
 
   const minimizeWebview = async () => {
-    appWindow.minimize();
+    getCurrent().minimize();
   };
   const maximizeWebview = async () => {
+    const appWindow = getCurrent();
     if (await appWindow.isMaximized()) {
       appWindow.setPosition(new LogicalPosition(position.x, position.y));
     } else {
@@ -24,7 +25,7 @@ export function WindowControlsNav() {
     }
   };
   const closeWebview = async () => {
-    appWindow.close();
+    getCurrent().close();
   };
 
   return (
