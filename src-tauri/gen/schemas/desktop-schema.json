@@ -977,6 +977,27 @@
           ]
         },
         {
+          "description": "test-harness:default -> Default permissions for the plugin",
+          "type": "string",
+          "enum": [
+            "test-harness:default"
+          ]
+        },
+        {
+          "description": "test-harness:allow-ping -> Enables the ping command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "test-harness:allow-ping"
+          ]
+        },
+        {
+          "description": "test-harness:deny-ping -> Denies the ping command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "test-harness:deny-ping"
+          ]
+        },
+        {
           "description": "tray:default -> Default permissions for the plugin.",
           "type": "string",
           "enum": [

@@ -2385,6 +2385,7 @@ dependencies = [
  "tauri",
  "tauri-build",
  "tauri-plugin-os",
+ "tauri-plugin-test-harness",
 ]
 
 [[package]]
@@ -3150,6 +3151,16 @@ dependencies = [
  "serde_json",
  "serialize-to-javascript",
  "sys-locale",
+ "tauri",
+ "tauri-plugin",
+ "thiserror",
+]
+
+[[package]]
+name = "tauri-plugin-test-harness"
+version = "0.0.0"
+dependencies = [
+ "serde",
  "tauri",
  "tauri-plugin",
  "thiserror",

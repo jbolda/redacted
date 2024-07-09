@@ -9,6 +9,9 @@
     "preview": "vite preview",
     "tauri": "tauri"
   },
+  "workspaces": [
+    "plugins/*"
+  ],
   "dependencies": {
     "@tauri-apps/api": "^2.0.0-beta <2.0.0",
     "@tauri-apps/plugin-os": "^2.0.0-beta <2.0.0",
