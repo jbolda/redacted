@@ -39,22 +39,22 @@
       "icons/icon.icns",
       "icons/icon.ico"
     ],
+    "longDescription": "",
+    "resources": [],
+    "shortDescription": "",
+    "targets": "all",
     "linux": {
       "deb": {
         "depends": []
       }
     },
-    "longDescription": "",
     "macOS": {
       "entitlements": null,
       "exceptionDomain": "",
       "frameworks": [],
       "providerShortName": null,
-      "signingIdentity": "-"
+      "signingIdentity": null
     },
-    "resources": [],
-    "shortDescription": "",
-    "targets": "all",
     "windows": {
       "certificateThumbprint": null,
       "digestAlgorithm": "sha256",
