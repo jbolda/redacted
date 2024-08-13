@@ -61,7 +61,7 @@ jobs:
       - name: upload assets
         uses: crabnebula-dev/cloud-release@v0.2.0
         with:
-          command: release upload ${{ env.CN_APP_SLUG }} --framework tauri
+          command: release upload ${{ vars.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
           path: ./src-tauri
 
@@ -76,5 +76,5 @@ jobs:
       - name: publish release
         uses: crabnebula-dev/cloud-release@v0.2.0
         with:
-          command: release publish ${{ env.CN_APP_SLUG }} --framework tauri
+          command: release publish ${{ vars.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
