@@ -64,6 +64,13 @@
   },
   "identifier": "com.redacted.dev",
   "plugins": {
-    "updater": {}
+    "updater": {
+      "active": true,
+      "dialog": true,
+      "endpoints": [
+        "https://cdn.crabnebula.app/update/jbolda/redacted/{{target}}-{{arch}}/{{current_version}}"
+      ],
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDIwNjExODM2RUM3RkE4NgpSV1NHK3NkdWd4RUdBcDR4bjVYaVd1WnovTG5Udk5odWNMaWxNbENlYk5nbXZ5bUVwM1hWVUE4Vwo="
+    }
   }
 }

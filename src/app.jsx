@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "preact/compat";
+import { checkForAppUpdates } from "./updater.jsx";
 import { WindowCreation } from "./window-creation.jsx";
 const WindowControlsNav = lazy(() =>
   import("./window-controls.jsx").then((exports) => exports.WindowControlsNav)
@@ -7,6 +8,10 @@ const WindowControlsNav = lazy(() =>
 import "./app.css";
 
 export function App() {
+  useEffect(async () => {
+    await checkForAppUpdates();
+  }, []);
+
   return (
     <>
       <Suspense fallback={null}>

@@ -43,7 +43,11 @@
     "core:window:allow-start-dragging",
     "os:allow-platform",
     "core:app:allow-app-show",
-    "core:app:allow-app-hide"
+    "core:app:allow-app-hide",
+    "updater:default",
+    "dialog:default",
+    "process:default",
+    "process:allow-restart"
   ],
   "platforms": ["linux", "macOS", "windows", "android", "iOS"]
 }
