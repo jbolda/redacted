@@ -17,7 +17,8 @@ tauri-build = { version = "2.0.0-beta", features = [] }
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 tauri = { version = "2.0.0-beta", features = [] }
-tauri-plugin-os = "2.0.0-beta.0"
+tauri-plugin-os = "2.0.0-beta"
+tauri-plugin-test-harness = { path = "../plugins/tauri-plugin-test-harness/" }
 
 [features]
 # by default Tauri runs in production mode
