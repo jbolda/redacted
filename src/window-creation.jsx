@@ -1,6 +1,6 @@
 import { useState } from "preact/hooks";
 import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { getCurrent } from "@tauri-apps/api/window";
+import { getCurrentWindow } from "@tauri-apps/api/window";
 
 const percentToHex = (p) => {
   const percent = Math.max(0, Math.min(100, p)); // bound percent from 0 to 100
@@ -11,7 +11,7 @@ const percentToHex = (p) => {
 
 export function WindowCreation() {
   const [windows, setWindows] = useState([]);
-  const currentWindow = getCurrent();
+  const currentWindow = getCurrentWindow();
 
   const createWindow = () => {
     setWindows((prevState) => {

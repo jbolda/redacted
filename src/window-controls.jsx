@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import { getCurrent, LogicalPosition } from "@tauri-apps/api/window";
+import { getCurrentWindow, LogicalPosition } from "@tauri-apps/api/window";
 import { platform } from "@tauri-apps/plugin-os";
 import "./window-controls.css";
 
@@ -12,10 +12,10 @@ export function WindowControlsNav() {
   // }, [platform]);
 
   const minimizeWebview = async () => {
-    getCurrent().minimize();
+    getCurrentWindow().minimize();
   };
   const maximizeWebview = async () => {
-    const appWindow = getCurrent();
+    const appWindow = getCurrentWindow();
     if (await appWindow.isMaximized()) {
       appWindow.setPosition(new LogicalPosition(position.x, position.y));
     } else {
@@ -25,7 +25,7 @@ export function WindowControlsNav() {
     }
   };
   const closeWebview = async () => {
-    getCurrent().close();
+    getCurrentWindow().close();
   };
 
   return (
