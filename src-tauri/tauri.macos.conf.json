@@ -1,5 +1,5 @@
 {
-  "tauri": {
+  "app": {
     "macOSPrivateApi": true,
     "windows": [
       {

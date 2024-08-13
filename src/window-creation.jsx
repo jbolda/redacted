@@ -1,5 +1,5 @@
 import { useState } from "preact/hooks";
-import { WebviewWindow } from "@tauri-apps/api/webview";
+import { WebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { getCurrent } from "@tauri-apps/api/window";
 
 const percentToHex = (p) => {

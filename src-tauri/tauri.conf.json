@@ -1,4 +1,7 @@
 {
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "productName": "redacted",
+  "version": "0.0.0",
   "app": {
     "security": {
       "csp": null
@@ -47,7 +50,7 @@
       "exceptionDomain": "",
       "frameworks": [],
       "providerShortName": null,
-      "signingIdentity": null
+      "signingIdentity": "-"
     },
     "resources": [],
     "shortDescription": "",
@@ -61,7 +64,5 @@
   "identifier": "com.redacted.dev",
   "plugins": {
     "updater": {}
-  },
-  "productName": "redacted",
-  "version": "0.0.0"
+  }
 }
