@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "preact/compat";
+import { Suspense, lazy, useEffect } from "preact/compat";
 import { checkForAppUpdates } from "./updater.jsx";
 import { WindowCreation } from "./window-creation.jsx";
 const WindowControlsNav = lazy(() =>
