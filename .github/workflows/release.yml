@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: create draft release
-        uses: crabnebula-dev/cloud-release@v0.2.0
+        uses: crabnebula-dev/cloud-release@v0.2
         with:
           command: release draft ${{ vars.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
@@ -62,7 +62,7 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
 
       - name: upload assets
-        uses: crabnebula-dev/cloud-release@v0.2.0
+        uses: crabnebula-dev/cloud-release@v0.2
         with:
           command: release upload ${{ vars.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}
@@ -77,7 +77,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: publish release
-        uses: crabnebula-dev/cloud-release@v0.2.0
+        uses: crabnebula-dev/cloud-release@v0.2
         with:
           command: release publish ${{ vars.CN_APP_SLUG }} --framework tauri
           api-key: ${{ secrets.CN_API_KEY }}

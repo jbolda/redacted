@@ -12,9 +12,7 @@
   ></body>
   <script>
     // access the pre-bundled global API functions
-    const { TauriEvent } = window.__TAURI__.event;
-    const { getCurrent: getCurrentWindow } = window.__TAURI__.window;
-    const { getCurrent: getCurrentWebview } = window.__TAURI__.webview;
+    const { getCurrentWebview } = window.__TAURI__.webview;
     const currentWebview = getCurrentWebview();
 
     currentWebview.listen("window-color-change", ({ event, payload }) => {
